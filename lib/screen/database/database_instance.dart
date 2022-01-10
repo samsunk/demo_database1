@@ -6,7 +6,7 @@ class DatabaseInstance {
   DatabaseInstance._();
   static DatabaseInstance get instance => _instance ??= DatabaseInstance._();
 
-  Future<AppDatabase> getDatabaseInstance() async {
-    return await $FloorAppDatabase.databaseBuilder('my_database.db').build();
+  Future<AppDatabase> getDatabaseInstance() {
+    return $FloorAppDatabase.databaseBuilder('my_database.db').build();
   }
 }

@@ -10,3 +10,4 @@ part 'mydatabase.g.dart';
 abstract class AppDatabase extends FloorDatabase {
   PersonDao get personDao;
 }
+

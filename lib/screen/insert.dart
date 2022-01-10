@@ -18,8 +18,7 @@ class _InsertScreenState extends State<InsertScreen> {
   String contact = '';
   String age = '';
 
-  Future<void> insertData(
-      String fname, String add, String contact, int age) async {
+  insertData(String fname, String add, String contact, int age) async {
     var person = Person(fname: fname, add: add, contact: contact, age: age);
     final database = await DatabaseInstance.instance.getDatabaseInstance();
     await database.personDao.insertPerson(person);
@@ -27,7 +26,6 @@ class _InsertScreenState extends State<InsertScreen> {
 
   String? checkEmpty(value) {
     if (value == null || value.isEmpty) {
-  
       return "* Required";
     }
     return null;
@@ -103,7 +101,6 @@ class _InsertScreenState extends State<InsertScreen> {
                   ),
                   onPressed: () {
                     if (_formkey.currentState!.validate()) {
-                      
                       _formkey.currentState!.save();
                       try {
                         insertData(fname, add, contact, int.parse(age));
@@ -118,12 +115,11 @@ class _InsertScreenState extends State<InsertScreen> {
                         ).show(context);
                         print('Error occured');
                       }
-                    }
-                    else{
-                       MotionToast.error(
-                          description: 'Error occured !!!',
-                          title: 'Unsucesss',
-                        ).show(context);
+                    } else {
+                      MotionToast.error(
+                        description: 'Error occured !!!',
+                        title: 'Unsucesss',
+                      ).show(context);
                     }
                   },
                   child: const Text('Submit'),
